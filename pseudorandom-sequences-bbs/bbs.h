@@ -2,6 +2,7 @@
 #define BBS_H
 #include <string>
 
-std::string generateSequence(int length);
+std::string generate_sequence(int length);
+std::string generate_sequence(int length, long long p, long long q);
 
 #endif // BBS_H
