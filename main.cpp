@@ -9,9 +9,12 @@
 enum algorithms{ BBS = 1, FINISH, MAX_ALGORITHMS};
 
 void printMenu(){
-    std::cout<< "Wybierz zadanie: \n" <<
+    std::cout<< 
+    "\n-------------------\n" << 
+    "Wybierz zadanie: \n" <<
     " "<<BBS<<". BBS\n" <<
-    " "<<FINISH<<". Wyjdz\n";
+    " "<<FINISH<<". Wyjdz\n"<< 
+    "\n-------------------\n";
 }
 
 void handleMainMenu(){
