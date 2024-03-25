@@ -1,8 +1,8 @@
+#include "..\cryptography_utils.h"
 #include <iostream>
 #include <ctime>
 #include <stdlib.h>
 #include <string>
-#include "..\cryptography_utils.h"
 
 long long generate_mod(int mod, int rest) {
     int maxIterations = (rand() % 2500 )+1000;
