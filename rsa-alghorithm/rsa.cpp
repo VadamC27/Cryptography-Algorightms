@@ -24,4 +24,11 @@ void generate_RSA(long long p, long long q){
     long long n = p * q;
     long long phi = (p - 1) * (q - 1);
     
+    // generwoanie e
+    long long e;
+    do{
+        
+
+    }while(1!=gcd(e,phi));
+
 }
