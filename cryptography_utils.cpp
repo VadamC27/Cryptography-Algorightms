@@ -38,3 +38,19 @@ long long mod_exp(long long base, long long exponent, long long modulus) {
     }
     return result;
 }
+
+long long generate_prime(){
+    long long number = 0;    
+    do{
+        number = 1000 + ( rand() % 9000 );
+    } while(!is_prime(number));    
+    return number;
+}
+
+long long generate_prime(long long min, long long max){
+    long long number = 0;    
+    do{
+        number = min+ ( rand() % (max-min) );
+    } while(!is_prime(number));    
+    return number;
+}

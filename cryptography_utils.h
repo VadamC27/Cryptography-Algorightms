@@ -13,4 +13,7 @@ void print_vector(std::vector<long long> vec);
 
 long long mod_exp(long long base, long long exponent, long long modulus);
 
-#endif // CRYPTOGRAPHY_UTILS_H
+long long generate_prime();
+long long generate_prime(long long min, long long max);
+
+#endif /* CRYPTOGRAPHY_UTILS_H*/ 

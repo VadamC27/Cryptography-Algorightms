@@ -6,17 +6,19 @@
 #include "pseudorandom-sequences-bbs/bbs.h"
 #include "pseudorandom-sequences-bbs/bbs_tests.h"
 #include "rsa-alghorithm/rsa.h"
+#include "dh-alghorithm/dh.h"
 
-enum algorithms{ BBS = 1, RSA, FINISH, MAX_ALGORITHMS};
+enum algorithms{ BBS = 1, RSA, DH, FINISH, MAX_ALGORITHMS};
 
 void printMenu(){
     std::cout<< 
     "\n-------------------\n" << 
     "Wybierz zadanie: \n" <<
     " "<<BBS<<". BBS\n" <<
-    " "<<RSA<<". RSA\n"<<
+    " "<<RSA<<". Algorytm RSA\n"<<
+    " "<<DH<<". Algorytm Diffiego-Hellmana\n"
     " "<<FINISH<<". Wyjdz\n"<< 
-    "\n-------------------\n";
+    "-------------------\n";
 }
 
 void handleMainMenu(){
@@ -35,6 +37,10 @@ void handleMainMenu(){
             }
             case RSA:{
                 RSAmenu();
+                break;
+            }
+            case DH:{
+                DHalgorithm();
                 break;
             }
             case FINISH:{

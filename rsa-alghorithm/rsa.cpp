@@ -9,14 +9,6 @@
 #include <vector>
 
 
-long long generate_prime(){
-    long long number = 0;    
-    do{
-        number = 1000 + ( rand() % 9000 );
-    } while(!is_prime(number));    
-    return number;
-}
-
 long long mod_inverse(long long a, long long m) {
     long long m0 = m, t, q;
     long long x0 = 0, x1 = 1;
