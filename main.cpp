@@ -34,7 +34,7 @@ void handleMainMenu(){
                 break;
             }
             case RSA:{
-                generate_RSA();
+                RSAmenu();
                 break;
             }
             case FINISH:{

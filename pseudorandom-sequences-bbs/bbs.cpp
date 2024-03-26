@@ -10,7 +10,7 @@ long long generate_mod(int mod, int rest) {
     for (iteration = 0; iteration < maxIterations; iteration++)
         result += mod;
     result = result + rest;
-    while (!check_prime(result)) {
+    while (!is_prime(result)) {
         result += mod;
     }
     return result;
@@ -45,11 +45,11 @@ std::string generate_sequence(int length) {
 
 long long generateN(long long p, long long q) {
     int err = 0;
-    if(!check_prime(p)){
+    if(!is_prime(p)){
         std::cout<<"p nie jest liczba pierwsza!!\n";
         err = 1;
     }
-    if(!check_prime(q)){
+    if(!is_prime(q)){
         std::cout<<"q nie jest liczba pierwsza!!\n";
         err = 1;
     }
