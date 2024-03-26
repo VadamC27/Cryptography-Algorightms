@@ -5,8 +5,8 @@
 
 #include "pseudorandom-sequences-bbs/bbs.h"
 #include "pseudorandom-sequences-bbs/bbs_tests.h"
-#include "rsa-alghorithm/rsa.h"
-#include "dh-alghorithm/dh.h"
+#include "rsa-algorithm/rsa.h"
+#include "dh-algorithm/dh.h"
 
 enum algorithms{ BBS = 1, RSA, DH, FINISH, MAX_ALGORITHMS};
 

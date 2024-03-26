@@ -5,7 +5,7 @@ CXX = g++
 CXXFLAGS = -std=c++11 -Wall
 
 # Source files
-SOURCES = main.cpp pseudorandom-sequences-bbs/bbs.cpp pseudorandom-sequences-bbs/bbs_tests.cpp cryptography_utils.cpp rsa-alghorithm/rsa.cpp dh-alghorithm/dh.cpp
+SOURCES = main.cpp pseudorandom-sequences-bbs/bbs.cpp pseudorandom-sequences-bbs/bbs_tests.cpp cryptography_utils.cpp rsa-algorithm/rsa.cpp dh-algorithm/dh.cpp
 
 # Object files directory
 OBJ_DIR = obj
