@@ -7,8 +7,9 @@
 #include "pseudorandom-sequences-bbs/bbs_tests.h"
 #include "rsa-alghorithm/rsa.h"
 #include "dh-alghorithm/dh.h"
+#include "hash-functions/hash_tests.h"
 
-enum algorithms{ BBS = 1, RSA, DH, FINISH, MAX_ALGORITHMS};
+enum algorithms{ BBS = 1, RSA, DH, HASH_FUNCTIONS, FINISH, MAX_ALGORITHMS};
 
 void printMenu(){
     std::cout<< 
@@ -16,7 +17,8 @@ void printMenu(){
     "Wybierz zadanie: \n" <<
     " "<<BBS<<". BBS\n" <<
     " "<<RSA<<". Algorytm RSA\n"<<
-    " "<<DH<<". Algorytm Diffiego-Hellmana\n"
+    " "<<DH<<". Algorytm Diffiego-Hellmana\n"<<
+    " "<<HASH_FUNCTIONS<<". Funkcje skrotu\n"<<
     " "<<FINISH<<". Wyjdz\n"<< 
     "-------------------\n";
 }
@@ -41,6 +43,10 @@ void handleMainMenu(){
             }
             case DH:{
                 DHalgorithm();
+                break;
+            }
+            case HASH_FUNCTIONS:{
+                hash_functions_test();
                 break;
             }
             case FINISH:{

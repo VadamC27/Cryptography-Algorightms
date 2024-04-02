@@ -2,10 +2,11 @@
 CXX = g++
 
 # Compiler flags
-CXXFLAGS = -std=c++11 -Wall
+CXXFLAGS = -std=c++11 -Wall 
+LDFLAGS = -lssl -lcrypto
 
 # Source files
-SOURCES = main.cpp pseudorandom-sequences-bbs/bbs.cpp pseudorandom-sequences-bbs/bbs_tests.cpp cryptography_utils.cpp rsa-alghorithm/rsa.cpp dh-alghorithm/dh.cpp
+SOURCES = main.cpp pseudorandom-sequences-bbs/bbs.cpp pseudorandom-sequences-bbs/bbs_tests.cpp cryptography_utils.cpp rsa-alghorithm/rsa.cpp dh-alghorithm/dh.cpp hash-functions/hash_tests.cpp
 
 # Object files directory
 OBJ_DIR = obj
@@ -24,7 +25,7 @@ all: $(EXECUTABLE)
 
 # Rule to link object files into the executable
 $(EXECUTABLE): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
 # Rule to compile source files into object files
 $(OBJ_DIR)/%.o: %.cpp#@mkdir -p $(OBJ_DIR)

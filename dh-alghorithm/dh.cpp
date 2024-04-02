@@ -28,15 +28,14 @@ void DHalgorithm(){
 
     long long X = mod_exp(g, A_secret, n);
 
-
     long long Y = mod_exp(g, B_secret, n);
-
 
     long long A_key = mod_exp(Y, A_secret, n);
 
     long long B_key = mod_exp(X, B_secret, n);
 
     std::string result;
+
     if(B_key == A_key){
         result = "SUKCES!";
     }else{
