@@ -7,6 +7,6 @@
 #include <cstdio>
 #include <iostream>
 
-
+void test_cipher_blocks();
 
 #endif /* BLOCK_CIPHER_H */

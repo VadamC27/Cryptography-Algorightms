@@ -6,7 +6,7 @@ CXXFLAGS = -std=c++11 -Wall
 LDFLAGS = -lssl -lcrypto
 
 # Source files
-SOURCES = main.cpp pseudorandom-sequences-bbs/bbs.cpp pseudorandom-sequences-bbs/bbs_tests.cpp cryptography_utils.cpp rsa-algorithm/rsa.cpp dh-algorithm/dh.cpp hash-functions/hash_tests.cpp block-cyphers/block_cyphers.cpp
+SOURCES = main.cpp pseudorandom-sequences-bbs/bbs.cpp pseudorandom-sequences-bbs/bbs_tests.cpp cryptography_utils.cpp rsa-algorithm/rsa.cpp dh-algorithm/dh.cpp hash-functions/hash_tests.cpp block-ciphers/block_ciphers.cpp block-ciphers/cbc_own.cpp
 
 
 # Object files directory

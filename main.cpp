@@ -11,7 +11,7 @@
 #include "block-ciphers/block_ciphers.h"
 
 
-enum algorithms{ BBS = 1, RSA, DH, HASH_FUNCTIONS, FINISH, MAX_ALGORITHMS};
+enum algorithms{ BBS = 1, RSA, DH, HASH_FUNCTIONS, BLOCK_CIPHERS, FINISH, MAX_ALGORITHMS};
 
 void printMenu(){
     std::cout<< 
@@ -21,6 +21,7 @@ void printMenu(){
     " "<<RSA<<". Algorytm RSA\n"<<
     " "<<DH<<". Algorytm Diffiego-Hellmana\n"<<
     " "<<HASH_FUNCTIONS<<". Funkcje skrotu\n"<<
+    " "<<BLOCK_CIPHERS<<". Szyfry blokowe\n"<<
     " "<<FINISH<<". Wyjdz\n"<< 
     "-------------------\n";
 }
@@ -49,6 +50,10 @@ void handleMainMenu(){
             }
             case HASH_FUNCTIONS:{
                 hash_functions_test();
+                break;
+            }
+            case BLOCK_CIPHERS:{
+                test_cipher_blocks();
                 break;
             }
             case FINISH:{
