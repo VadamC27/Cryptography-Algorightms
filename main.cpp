@@ -8,7 +8,7 @@
 #include "rsa-algorithm/rsa.h"
 #include "dh-algorithm/dh.h"
 #include "hash-functions/hash_tests.h"
-#include "block-cyphers/block_cyphers.h"
+#include "block-ciphers/block_ciphers.h"
 
 
 enum algorithms{ BBS = 1, RSA, DH, HASH_FUNCTIONS, FINISH, MAX_ALGORITHMS};

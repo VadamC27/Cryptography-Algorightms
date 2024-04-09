@@ -1,5 +1,5 @@
-#ifndef BLOCK_CYPHER_H
-#define BLOCK_CYPHER_H
+#ifndef BLOCK_CIPHER_H
+#define BLOCK_CIPHER_H
 
 #include "../cryptography_utils.h"
 #include <ctime>
@@ -9,4 +9,4 @@
 
 
 
-#endif /* BLOCK_CYPHER_H */
+#endif /* BLOCK_CIPHER_H */
