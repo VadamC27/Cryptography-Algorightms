@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <limits>
+#include <chrono>
 
 bool is_prime( int num);
 
