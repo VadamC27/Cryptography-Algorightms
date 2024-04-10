@@ -163,7 +163,7 @@ bool long_series_test(std::string sequence, bool msg){
 }
 
 bool poker_test(std::string sequence){
-    return long_series_test(sequence, false);
+    return poker_test(sequence, false);
 }
 
 bool poker_test(std::string sequence, bool msg){

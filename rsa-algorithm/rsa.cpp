@@ -8,7 +8,6 @@
 #include <cmath>
 #include <vector>
 
-
 long long mod_inverse(long long a, long long m) {
     long long m0 = m, t, q;
     long long x0 = 0, x1 = 1;
@@ -24,8 +23,6 @@ long long mod_inverse(long long a, long long m) {
         x0 = x1 - q * x0;
         x1 = t;
     }
-
-    // Make x1 positive
     if (x1 < 0)
         x1 += m0;
 
