@@ -35,20 +35,14 @@ void encrypt_file_cbc_own(const std::string& inputFile, const std::string& outpu
     int bytesRead, bytesWritten;
 
     auto start = std::chrono::steady_clock::now();
-
-    //outFile.write(iv.c_str(), EVP_CIPHER_block_size(EVP_aes_256_ecb()));
     unsigned char tempIv[bufferSize];
     memcpy(tempIv, iv.data(), EVP_CIPHER_block_size(EVP_aes_256_ecb()));
 
     while ((bytesRead = inFile.read(reinterpret_cast<char*>(inBuffer), bufferSize).gcount()) > 0) {
-        // XOR plaintext with IV (or previous ciphertext)
         xor_bytes(inBuffer, tempIv, xorBuffer, bytesRead);
 
-        // Encrypt XOR result
         EVP_EncryptUpdate(ctx, outBuffer, &bytesWritten, xorBuffer, bytesRead);
         outFile.write(reinterpret_cast<char*>(outBuffer), bytesWritten);
-
-        // Update IV for next block
         memcpy(tempIv, outBuffer, bytesWritten);
     }
 
@@ -72,8 +66,6 @@ void decrypt_file_cbc_own(const std::string& inputFile, const std::string& outpu
         std::cerr << "Error: Cannot open input file " << inputFile << std::endl;
         return;
     }
-
-    // Open output file
     std::ofstream outFile(outputFile, std::ios::binary);
     if (!outFile) {
         std::cerr << "Error: Cannot open output file " << outputFile << std::endl;
@@ -88,7 +80,6 @@ void decrypt_file_cbc_own(const std::string& inputFile, const std::string& outpu
     unsigned char xorBuffer[bufferSize];
     int bytesRead, bytesWritten;
 
-    // Read IV from input file
     memcpy(reinterpret_cast<char*>(xorBuffer),reinterpret_cast<const unsigned char*>(iv.c_str()), sizeof(iv.c_str()));
    
     auto start = std::chrono::steady_clock::now();
