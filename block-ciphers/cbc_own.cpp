@@ -4,6 +4,9 @@
 #include <iostream>
 #include <iomanip>
 #include <chrono>
+#include <cstring>
+#include <stdio.h>
+#include <stdlib.h>
 
 void xor_bytes(const unsigned char* a, const unsigned char* b, unsigned char* result, int length) {
     for (int i = 0; i < length; ++i) {
