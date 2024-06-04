@@ -56,8 +56,8 @@ void check_probability(const char *algo_name,const unsigned char *input, size_t 
     } 
 
     float difference = hamming_distance(hash_1, hash_2, hash_len);
-    std::cout<<"Oryginalne slowo: "<< input <<"\nSlowo po zmianie jednego losowego bitu: " << input_diff <<
-     "\nWartosc dla sprawdzenia krytrerium SAC w roznicy dwoch wynikow funkcji skrotu: " <<difference<<"\n";
+    std::cout<<"Original input: "<< input <<"\nInput after one bit change: " << input_diff <<
+     "\nSAC cryterium in difference of two diffrent hash functions outputs: " <<difference<<"\n";
 }
 
 
@@ -95,7 +95,7 @@ void hash_and_print(const char *algo_name, const unsigned char *input, size_t in
         }
         printf("\n");
         if(more_info){
-            std::cout<<"Dlugosc ciagu wynikowego: "<< strlen((const char *)hash) << "\n";
+            std::cout<<"Lenght of output hash: "<< strlen((const char *)hash) << "\n";
         }
     }
 
@@ -116,7 +116,7 @@ void hash_and_print(const char *algo_name, const unsigned char *input, size_t in
 }
 
 void hash_word(const unsigned char * text){
-    std::cout<<"Funkcje skrotu dla slowa: \"" << text << "\"\n";
+    std::cout<<"Hash functions for: \"" << text << "\"\n";
     hash_and_print("MD5", text, strlen((const char*)text), true, true);
     hash_and_print("SHA1", text, strlen((const char*)text), true, true);
     hash_and_print("SHA256", text, strlen((const char*)text), true, true);
@@ -124,7 +124,7 @@ void hash_word(const unsigned char * text){
 }
 
 void hash_speed_test(const unsigned char * text){
-    std::cout<<"Funkcje skrotu oraz pomiar czasu wykonania dla slowa: \"" << text << "\"\n";
+    std::cout<<"Hash functions and time mesurements for word: \"" << text << "\"\n";
 
     auto start = std::chrono::high_resolution_clock::now();
     hash_and_print("MD5", text, strlen((const char*)text), false);

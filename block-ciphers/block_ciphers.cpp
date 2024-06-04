@@ -47,7 +47,7 @@ void encrypt_file_ctr(const std::string& inputFile, const std::string& outputFil
 
     auto end = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::duration<double>>(end - start);
-    std::cout << "Szyfrowanie (CTR): "<< std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tPlik: " << inputFile <<"\n";
+    std::cout << "Encrypt (CTR): "<< std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tFile: " << inputFile <<"\n";
 }
 
 
@@ -90,7 +90,7 @@ void decrypt_file_ctr(const std::string& inputFile, const std::string& outputFil
 
     auto end = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::duration<double>>(end - start);
-    std::cout << "Deszyfrowanie (CTR): " << std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tPlik: " << inputFile <<"\n";
+    std::cout << "Decrypt (CTR): " << std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tFile: " << inputFile <<"\n";
 }
 
 
@@ -134,7 +134,7 @@ void encrypt_file_cbc(const std::string& inputFile, const std::string& outputFil
 
     auto end = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::duration<double>>(end - start);
-    std::cout << "Szyfrowanie (CBC): " << std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tPlik: " << inputFile <<"\n";
+    std::cout << "Encrypt (CBC): " << std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tFile: " << inputFile <<"\n";
 }
 
 
@@ -177,7 +177,7 @@ void decrypt_file_cbc(const std::string& inputFile, const std::string& outputFil
 
     auto end = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::duration<double>>(end - start);
-    std::cout << "Deszyfrowanie (CBC): " << std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tPlik: " << inputFile <<"\n";
+    std::cout << "Decrypt(CBC): " << std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tFile: " << inputFile <<"\n";
 }
 
 void encrypt_file_ecb(const std::string& inputFile, const std::string& outputFile, const std::string& key) {
@@ -221,7 +221,7 @@ void encrypt_file_ecb(const std::string& inputFile, const std::string& outputFil
 
     auto end = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::duration<double>>(end - start);
-    std::cout << "Szyfrowanie (ECB): " << std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tPlik: " << inputFile <<"\n";
+    std::cout << "Encrypt (ECB): " << std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tFile: " << inputFile <<"\n";
 }
 
 void decrypt_file_ecb(const std::string& inputFile, const std::string& outputFile, const std::string& key) {
@@ -264,7 +264,7 @@ void decrypt_file_ecb(const std::string& inputFile, const std::string& outputFil
 
     auto end = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::duration<double>>(end - start);
-    std::cout <<"Deszyfrowanie (ECB): " << std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tPlik: " << inputFile <<"\n";
+    std::cout <<"Decrypt (ECB): " << std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tFile: " << inputFile <<"\n";
 }
 
 
@@ -314,19 +314,19 @@ void test_cipher_blocks(){
 
 
     input_filename = "block-ciphers/sample_err.txt"; 
-    std::cout<<"\nWersje pliku z wprowadzonym bledem przed szyfrowaniem:\n";
+    std::cout<<"\nEncryption with an error in input file:\n";
     encrypt_file_ecb(input_filename, (const char *) "bin/error_ecb.bin", key);
     encrypt_file_cbc(input_filename, (const char *) "bin/error_cbc.bin", key, iv);
     encrypt_file_ctr(input_filename, (const char *) "bin/error_ctr.bin", key, iv);
 
-    std::cout<<"\nDeszyfrowanie pliku z wprowadzonym bledem w pliku binarnym:\n";
+    std::cout<<"\nDecryption with an error in binary file:\n";
     decrypt_file_ecb((const char *)"block-ciphers/output_ecb_1_err.bin", (const char *)"bin/decrypted_ecb_err.txt", key);
     decrypt_file_cbc((const char *)"block-ciphers/output_cbc_1_err.bin", (const char *)"bin/decrypted_cbc_err.txt", key, iv);
     decrypt_file_ctr((const char *)"block-ciphers/output_ctr_1_err.bin", (const char *)"bin/decrypted_ctr_err.txt", key, iv);
 
     input_filename = "block-ciphers/sample.txt";
 
-    std::cout<<"\nWlasna implementacja CBC na bazie ECB:\n";
+    std::cout<<"\nOwn CBC implementation based on OpenSSL ECB:\n";
     encrypt_file_cbc_own(input_filename, (const char *) "bin/output_cbc_1_own.bin", key, iv);
     decrypt_file_cbc_own((const char *)"bin/output_cbc_1_own.bin", (const char *)"bin/decrypted_cbc_own.txt", key, iv);
 

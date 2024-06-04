@@ -37,18 +37,18 @@ void DHalgorithm(){
     std::string result;
 
     if(B_key == A_key){
-        result = "SUKCES!";
+        result = "SUCCESS!";
     }else{
-        result = "PORAZKA";
+        result = "FAILURE";
     }
 
-    std::cout<<"OSOBA A:\n"<<
-    "\tx (tajna liczba calkowita)\t=\t" << A_secret <<
+    std::cout<<"PERSON A:\n"<<
+    "\tx (secret integer)\t=\t" << A_secret <<
     "\n\tX (g^x mod n)\t\t\t=\t" << X <<
-    "\n\tobliczony klucz k\t\t=\t" << A_key <<
-    "\nOSOBA B\n" <<
-    "\ty (tajna liczba calkowita)\t=\t" << B_secret <<
+    "\n\tk(calculated key)\t\t=\t" << A_key <<
+    "\nPERSON B\n" <<
+    "\ty (secret integer)\t=\t" << B_secret <<
     "\n\tY (g^y mod n)\t\t\t=\t" << Y <<
-    "\n\tk (obliczony klucz)\t\t=\t" << B_key <<
-    "\nWYNIK: "<<result;
+    "\n\tk (calculated key)\t\t=\t" << B_key <<
+    "\nRESULT: "<<result;
 }

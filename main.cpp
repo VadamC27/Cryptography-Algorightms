@@ -16,13 +16,13 @@ enum algorithms{ BBS = 1, RSA, DH, HASH_FUNCTIONS, BLOCK_CIPHERS, FINISH, MAX_AL
 void printMenu(){
     std::cout<< 
     "\n-------------------\n" << 
-    "Wybierz zadanie: \n" <<
+    "Choose function: \n" <<
     " "<<BBS<<". BBS\n" <<
-    " "<<RSA<<". Algorytm RSA\n"<<
-    " "<<DH<<". Algorytm Diffiego-Hellmana\n"<<
-    " "<<HASH_FUNCTIONS<<". Funkcje skrotu\n"<<
-    " "<<BLOCK_CIPHERS<<". Szyfry blokowe\n"<<
-    " "<<FINISH<<". Wyjdz\n"<< 
+    " "<<RSA<<". RSA algorithm\n"<<
+    " "<<DH<<". Diffie-Hellman algorithm\n"<<
+    " "<<HASH_FUNCTIONS<<". Hash functions\n"<<
+    " "<<BLOCK_CIPHERS<<". Block ciphers\n"<<
+    " "<<FINISH<<". Quit\n"<< 
     "-------------------\n";
 }
 
@@ -33,7 +33,7 @@ void handleMainMenu(){
         printMenu();
         int choice;
         do{
-            std::cout<<"Twoj wybor: ";
+            std::cout<<"Your choice: ";
             std::cin>>choice;
             switch (choice){
             case BBS:{
@@ -61,7 +61,7 @@ void handleMainMenu(){
                 break;
             }
             default: {
-                std::cout<<"Bledna opcja... \n";
+                std::cout<<"Incorrect option... \n";
                 break;
             }
         }

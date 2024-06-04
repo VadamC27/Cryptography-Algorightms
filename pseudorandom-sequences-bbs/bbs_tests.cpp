@@ -7,7 +7,7 @@
 #include "bbs.h"
 
 void print_bbs_test_menu(){
-    std::cout<<" Wybierz sposob generowania ciagu losowego:\n 1. Wygeneruj losowe p i q\n 2. Wybierz p i q\nTwoja opcja: ";
+    std::cout<<" Choose method for generating random sequence:\n 1. Generate random p and q\n 2. Enter p and q\nYour choice: ";
 }
 
 void bbs_test_menu(){
@@ -23,9 +23,9 @@ void bbs_test_menu(){
             }
             case 2:{
                 long long p,q;
-                std::cout<<"Podaj p: ";
+                std::cout<<"Enter p: ";
                 std::cin>>p;
-                std::cout<<"Podaj q: ";
+                std::cout<<"Enter q: ";
                 std::cin>>q;
                 sequence = generate_sequence(20000, p, q );
                 if(sequence == "error"){
@@ -37,25 +37,25 @@ void bbs_test_menu(){
                 break;
             }
             default:{
-                std::cout<<"Bledna opcja, wpisz ponownie: ";
+                std::cout<<"incorrect option, enter again: ";
                 break;
             }
         }
     } while(choice != 1 && choice != 2);
     int passed = 0;
-    std::cout<< "\n----- TESTY FIPS 140-2 -----\n I. Test pojedynczych bitow.\n";
+    std::cout<< "\n----- FIPS 140-2 TEST -----\n I. Single bit test.\n";
     if(numbers_test(sequence,true)) passed++;
-    std::cout<< " II. Test serii.\n";
+    std::cout<< " II. Run test.\n";
     if(series_test(sequence,true)) passed++;
-    std::cout<< " III. Test dlugiej serii.\n";
+    std::cout<< " III. Long run test.\n";
     if(long_series_test(sequence,true)) passed++;
-    std::cout<< " IV. Test pokerowy.\n";
+    std::cout<< " IV. Poker test.\n";
     if(poker_test(sequence,true)) passed++;
-    std::cout<<"\nZALICZONE TESTY: "<< passed<<"/4\n";
+    std::cout<<"\nTESTS PASSED: "<< passed<<"/4\n";
     if(passed == 4 ){
-        std::cout<<"\nWSZYSTKIE TESTY LOSOWOSCI ZALICZONE!\n";
+        std::cout<<"\nALL RANDOMNESS TESTS PASSED!\n";
     }else{
-        std::cout<<"\nNIE WSZYSTKIE TESTY ZOSTALY ZALICZONE! \n";
+        std::cout<<"\nNOT ALL RANDOMNESS TESTS PASSED! \n";
     }
     return; 
 }

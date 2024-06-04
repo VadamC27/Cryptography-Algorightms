@@ -61,7 +61,7 @@ void encrypt_file_cbc_own(const std::string& inputFile, const std::string& outpu
 
     auto end = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::duration<double>>(end - start);
-    std::cout << "Szyfrowanie (CBC wlasne): " << std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tPlik: " << inputFile <<"\n";
+    std::cout << "Encrypt (own CBC): " << std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tFile: " << inputFile <<"\n";
 }
 
 void decrypt_file_cbc_own(const std::string& inputFile, const std::string& outputFile, const std::string& key, const std::string& iv) {
@@ -112,5 +112,5 @@ void decrypt_file_cbc_own(const std::string& inputFile, const std::string& outpu
 
     auto end = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::duration<double>>(end - start);
-    std::cout << "Deszyfrowanie (CBC wlasne): " << std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tPlik: " << inputFile <<"\n";
+    std::cout << "Decrypt (own CBC): " << std::fixed << std::setprecision(4) << duration.count() * 1000 << " ms\t\t\tFile: " << inputFile <<"\n";
 }

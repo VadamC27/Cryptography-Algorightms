@@ -46,11 +46,11 @@ std::string generate_sequence(int length) {
 long long generateN(long long p, long long q) {
     int err = 0;
     if(!is_prime(p)){
-        std::cout<<"p nie jest liczba pierwsza!!\n";
+        std::cout<<"p is not a prime number!!\n";
         err = 1;
     }
     if(!is_prime(q)){
-        std::cout<<"q nie jest liczba pierwsza!!\n";
+        std::cout<<"q is not a prime number!!\n";
         err = 1;
     }
     if(err){

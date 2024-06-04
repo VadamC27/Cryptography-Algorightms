@@ -1,36 +1,15 @@
-# Compiler
 CXX = g++
 
-# Compiler flags
 CXXFLAGS = -std=c++11 -Wall 
 LDFLAGS = -lssl -lcrypto
 
-# Source files
 SOURCES = main.cpp pseudorandom-sequences-bbs/bbs.cpp pseudorandom-sequences-bbs/bbs_tests.cpp cryptography_utils.cpp rsa-algorithm/rsa.cpp dh-algorithm/dh.cpp hash-functions/hash_tests.cpp block-ciphers/block_ciphers.cpp block-ciphers/cbc_own.cpp
 
+EXECUTABLE = program.exe
 
-# Object files directory
-OBJ_DIR = obj
-
-# Object files
-OBJECTS = $(SOURCES:%.cpp=$(OBJ_DIR)/%.o)
-
-# Output directory
-OUTPUT_DIR = bin
-
-# Output executable
-EXECUTABLE = $(OUTPUT_DIR)/program.exe
-
-# Build rule
 all: $(EXECUTABLE)
 
-# Rule to link object files into the executable
-$(EXECUTABLE): $(OBJECTS)
+$(EXECUTABLE): $(SOURCES)
 	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
-
-# Rule to compile source files into object files
-$(OBJ_DIR)/%.o: %.cpp#@mkdir -p $(OBJ_DIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-# PHONY targets (targets that are not actual files)
+	
 .PHONY: all

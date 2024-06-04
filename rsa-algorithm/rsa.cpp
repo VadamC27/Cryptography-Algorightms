@@ -83,17 +83,17 @@ std::string decrypt(PrivateKey key, std::vector<long long>& message){
 }
 
 void print_RSA_menu(){
-     std::cout<<" Wybierz sposob generowania klucza:\n 1. Wygeneruj losowe p i q\n 2. Wybierz p i q\nTwoja opcja: ";
+     std::cout<<" Choose method for key generation:\n 1. Generate random p and q\n 2. Enter custom p and q\nYour choice: ";
 }
 
 void print_RSA_message_menu(){
-     std::cout<<" Wybierz wiadomosc:\n 1. Przykladowa wiadomosc 50 znakowa: \"Testowa wiadomosc dla RSA abcdefghijklnmopqrstuwxyz\"\n 2. Wypisz wiadomosc\nTwoja opcja: ";
+     std::cout<<" Chose message to encrypt:\n 1. Exemplary 50 chars: \"Test message for RSA abcdefghijklnmopqrstuwxyz1234\"\n 2. Enter custom message\nYour choice: ";
 }
 
 
 
 void RSAmessage_handler(RSAkeys keys){
-    std::string message = "Testowa wiadomosc dla RSA abcdefghijklnmopqrstuwxyz";
+    std::string message = "Test message for RSA abcdefghijklnmopqrstuwxyz1234";
     int choice;
     print_RSA_message_menu();
     do{
@@ -105,13 +105,13 @@ void RSAmessage_handler(RSAkeys keys){
                 break;
             }
             case 2:{
-                std::cout<<"Podaj wiadomosc: ";
+                std::cout<<"Enter message: ";
                 getline(std::cin, message);             
                   
                 break;
             }
             default:{
-                std::cout<<"Bledna opcja, wpisz ponownie: ";
+                std::cout<<"Incorrect input, enter again: ";
                 break;
             }
         }
@@ -124,15 +124,15 @@ void RSAmessage_handler(RSAkeys keys){
     std::string result;
 
     if(message == decrypted_message){
-        result = "SUKCES!";
+        result = "SUCCESS!";
     }else{
-        result = "PORAZKA";
+        result = "FAILURE";
     }
 
-    std::cout<<"Wiadomosc oryginalna: " << message <<
-    "\nWiadomosc po zaszyfrowaniu: "; print_vector(encrypted_message); 
-    std::cout<<"\nWiadomosc po deszyfrowaniu: " << decrypted_message <<
-    "\nWynik dzialania algorytmu: " << result<<"\n";
+    std::cout<<"Orginal message: " << message <<
+    "\nEncrypted message: "; print_vector(encrypted_message); 
+    std::cout<<"\nDecrypted message: " << decrypted_message <<
+    "\nResult: " << result<<"\n";
 }
 
 
@@ -149,24 +149,24 @@ void RSAmenu(){
             }
             case 2:{
                 long long p,q;
-                std::cout<<"Podaj p: ";
+                std::cout<<"Enter p: ";
                 std::cin>>p;
-                std::cout<<"Podaj q: ";
+                std::cout<<"Enter q: ";
                 std::cin>>q;
                 if(!is_prime(p)){
-                    std::cout<<"p nie jest liczba pierwsza!!\n";
+                    std::cout<<"p must be a prime number!!\n";
                     print_RSA_menu();                    
                     choice = -1;
                     break;
                 }
                 if(!is_prime(q)){
-                    std::cout<<"q nie jest liczba pierwsza!!\n";
+                    std::cout<<"q must be a prime number!!\n";
                     print_RSA_menu();
                     choice = -1;
                     break;
                 }
                 if(p < 1 || q<1){
-                    std::cout<<"Podaj dodatnie p i q!\n";
+                    std::cout<<"Enter positive p and q!\n";
                     print_RSA_menu();
                     
                     choice = -1;
@@ -177,7 +177,7 @@ void RSAmenu(){
                 break;
             }
             default:{
-                std::cout<<"Bledna opcja, wpisz ponownie: ";
+                std::cout<<"Incorrect input, enter again: ";
                 break;
             }
         }
